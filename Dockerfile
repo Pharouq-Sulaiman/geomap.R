@@ -13,16 +13,19 @@ RUN apt-get update && apt-get install -y \
     libproj-dev
 
 # Install R packages required by your app
-RUN R -e "install.packages(c('shiny', 'leaflet', 'sf', 'dplyr', 'tidyverse', 'mapview', 'leaflet.extras', 'plotly'))"
+RUN R -e "install.packages(c('shiny', 'shinydashboard', 'shinyjs', 'shinyFiles', 'tidyverse', 'sf', 'dplyr', 'mapview', 'leaflet', 'fontawesome', 'purrr', 'leaflet.extras', 'leaflet.extras2', 'leaflet.esri', 'htmltools', 'rwhatsapp', 'stringr', 'plotly', 'wordcloud2', 'ggplot2', 'tidyr', 'hms', 'text', 'stringi', 'emoji', 'janeaustenr', 'tidytext', 'writexl', 'emojifont', 'readr', 'reshape2', 'FactoMineR', 'factoextra', 'cluster', 'rio', 'SmartEDA', 'explore', 'ggraph', 'igraph', 'lubridate', 'ggimage'))"
 
 # Clone the Shiny app from GitHub repository
-# Replace <Pharouq-Sulaiman> and <geomap.R> with your GitHub username and repository name
-RUN git clone https://github.com/<Pharouq-Sulaiman>/<geomap.R>.git /srv/shiny-server/
+# Use this format for a public repository
+RUN git clone https://github.com/Pharouq-Sulaiman/geomap.git /srv/shiny-server/
+
+# If the repository is private, use this line instead (and replace <your-token> with your GitHub token):
+# RUN git clone https://<your-token>@github.com/Pharouq-Sulaiman/geomap.git /srv/shiny-server/
 
 # Make the Shiny app directory writable by the Shiny user
 RUN chown -R shiny:shiny /srv/shiny-server/
 
-# Expose the Shiny app port
+# Expose the port where the Shiny app will run
 EXPOSE 3838
 
 # Run the Shiny app
