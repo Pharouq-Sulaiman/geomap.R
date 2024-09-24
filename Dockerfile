@@ -1,7 +1,7 @@
 # Use the official R base image with Shiny installed
 FROM rocker/shiny:latest
 
-# Install system dependencies for packages (if needed)
+# Install system dependencies for packages (if needed) and Git
 RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     libssl-dev \
@@ -10,17 +10,14 @@ RUN apt-get update && apt-get install -y \
     libudunits2-dev \
     libgdal-dev \
     libgeos-dev \
-    libproj-dev
+    libproj-dev \
+    git  # Install Git
 
 # Install R packages required by your app
-RUN R -e "install.packages(c('shiny', 'shinydashboard', 'shinyjs', 'shinyFiles', 'tidyverse', 'sf', 'dplyr', 'mapview', 'leaflet', 'fontawesome', 'purrr', 'leaflet.extras', 'leaflet.extras2', 'leaflet.esri', 'htmltools', 'rwhatsapp', 'stringr', 'plotly', 'wordcloud2', 'ggplot2', 'tidyr', 'hms', 'text', 'stringi', 'emoji', 'janeaustenr', 'tidytext', 'writexl', 'emojifont', 'readr', 'reshape2', 'FactoMineR', 'factoextra', 'cluster', 'rio', 'SmartEDA', 'explore', 'ggraph', 'igraph', 'lubridate', 'ggimage'))"
+RUN R -e "install.packages(c('shiny', 'shinydashboard', 'shinyjs', 'shinyFiles', 'tidyverse', 'sf', 'dplyr', 'mapview', 'leaflet', 'fontawesome', 'purrr', 'leaflet.extras', 'leaflet.extras2', 'leaflet.esri', 'htmltools', 'plotly', 'ggplot2', 'tidyr', 'lubridate'))"
 
 # Clone the Shiny app from GitHub repository
-# Use this format for a public repository
 RUN git clone https://github.com/Pharouq-Sulaiman/geomap.git /srv/shiny-server/
-
-# If the repository is private, use this line instead (and replace <your-token> with your GitHub token):
-# RUN git clone https://<your-token>@github.com/Pharouq-Sulaiman/geomap.git /srv/shiny-server/
 
 # Make the Shiny app directory writable by the Shiny user
 RUN chown -R shiny:shiny /srv/shiny-server/
