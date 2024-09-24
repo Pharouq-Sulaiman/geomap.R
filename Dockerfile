@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install -y \
 # Install R packages required by your app
 RUN R -e "install.packages(c('shiny', 'shinydashboard', 'shinyjs', 'shinyFiles', 'tidyverse', 'sf', 'dplyr', 'mapview', 'leaflet', 'fontawesome', 'purrr', 'leaflet.extras', 'leaflet.extras2', 'leaflet.esri', 'htmltools', 'plotly', 'ggplot2', 'tidyr', 'lubridate'))"
 
-# Clone the Shiny app from GitHub repository
-RUN git clone https://github.com/Pharouq-Sulaiman/geomap.git /srv/shiny-server/
+RUN if [ -d "/srv/shiny-server/.git" ]; then cd /srv/shiny-server && git pull; else git clone https://github.com/Pharouq-Sulaiman/geomap.git /srv/shiny-server/; fi
+
 
 # Make the Shiny app directory writable by the Shiny user
 RUN chown -R shiny:shiny /srv/shiny-server/
