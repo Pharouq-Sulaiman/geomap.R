@@ -15,18 +15,14 @@ RUN apt-get update && apt-get install -y \
 # Install R packages required by your app
 RUN R -e "install.packages(c('shiny', 'shinydashboard', 'shinyjs', 'shinyFiles', 'tidyverse', 'sf', 'dplyr', 'mapview', 'leaflet', 'fontawesome', 'purrr', 'leaflet.extras', 'leaflet.extras2', 'leaflet.esri', 'htmltools', 'rwhatsapp', 'stringr', 'plotly', 'wordcloud2', 'ggplot2', 'tidyr', 'hms', 'text', 'stringi', 'emoji', 'janeaustenr', 'tidytext', 'writexl', 'emojifont', 'readr', 'reshape2', 'FactoMineR', 'factoextra', 'cluster', 'rio', 'SmartEDA', 'explore', 'ggraph', 'igraph', 'lubridate', 'ggimage'))"
 
-# Clone the Shiny app from GitHub repository
-# Use this format for a public repository
-RUN git clone https://github.com/Pharouq-Sulaiman/geomap.git /srv/shiny-server/
+# Create a directory for your Shiny app
+RUN mkdir /srv/shiny-server/geomap
 
-# If the repository is private, use this line instead (and replace <your-token> with your GitHub token):
-# RUN git clone https://<your-token>@github.com/Pharouq-Sulaiman/geomap.git /srv/shiny-server/
+# Copy your app into the Docker container
+COPY ./Geomapping.R /srv/shiny-server/geomap/
 
-# Make the Shiny app directory writable by the Shiny user
-RUN chown -R shiny:shiny /srv/shiny-server/
-
-# Expose the port where the Shiny app will run
+# Expose the port the app runs on
 EXPOSE 3838
 
 # Run the Shiny app
-CMD ["/usr/bin/shiny-server"]
+CMD ["R", "-e", "shiny::runApp('/srv/shiny-server/geomap', host='0.0.0.0', port=3838)"]
