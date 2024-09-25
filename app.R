@@ -43,7 +43,7 @@ library(writexl)
 library(emojifont)
 library(readr)
 library(reshape2)
-library(wordcloud)
+
 library(tidyverse)
 library(sf)
 library(dplyr)
@@ -76,7 +76,7 @@ library(tidytext)
 library(dplyr)
 library(ggplot2)
 library(lubridate)
-library(wordcloud)
+
 library(plotly)
 library(ggimage)
 
