@@ -28,10 +28,10 @@ COPY ./healthmopupandbaselinenmisfacility.csv /srv/shiny-server/
 COPY ./coat_of_arm.jpg /srv/shiny-server/
 
 # Copy the CSV file into the app directory
-COPY ./medical logo.jpg /srv/shiny-server/
+COPY ./medical_logo.jpg /srv/shiny-server/
 
 # Copy the CSV file into the app directory
-COPY ./hospital (14).png /srv/shiny-server/
+COPY ./hospital_plus.png /srv/shiny-server/
 
 
 
