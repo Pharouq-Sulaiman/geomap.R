@@ -33,7 +33,8 @@ COPY ./medical_logo.jpg /srv/shiny-server/geomap/
 # Copy the CSV file into the app directory
 COPY ./hospital_plus.jpg /srv/shiny-server/geomap/
 
-
+# Make sure www and data directories are accessible
+RUN chmod -R 755 /srv/shiny-server/
 
 
 # Expose the port the app runs on
