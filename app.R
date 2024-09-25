@@ -33,7 +33,7 @@ library(DT)
 
 
 # Load the dataset
-hospitals <- read.csv("./healthmopupandbaselinenmisfacility.csv")
+hospitals <- read.csv("/srv/shiny-server/geomap/healthmopupandbaselinenmisfacility.csv")
 options(timeout = 6000)
 
 hospitals0 <- hospitals %>%
@@ -258,11 +258,11 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   output$image1 <- renderImage({
-    list(src = "./medical_logo.jpg", height = 70, width = 100)
+    list(src = "/srv/shiny-server/geomap/medical_logo.jpg", height = 70, width = 100)
   }, deleteFile = FALSE)
   
   output$image2 <- renderImage({
-    list(src = "./coat_of_arm.jpg", height = 70, width = 100)
+    list(src = "/srv/shiny-server/geomap/coat_of_arm.jpg", height = 70, width = 100)
   }, deleteFile = FALSE)
   output$map <- renderLeaflet({
     mapview::mapview(hospitals2)@map
@@ -426,7 +426,7 @@ server <- function(input, output) {
   # Generate the leaflet map
   output$map3 <- renderLeaflet({
     
-    hospitalIconUrl <- "./hospital_plus.jpg" # Replace with the correct URL
+    hospitalIconUrl <- "/srv/shiny-server/geomap/hospital_plus.jpg" # Replace with the correct URL
     
     # Create a custom icon using the PNG URL
     hospitalIcon <- makeIcon(
