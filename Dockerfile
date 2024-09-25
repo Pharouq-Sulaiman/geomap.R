@@ -31,7 +31,7 @@ COPY ./coat_of_arm.jpg /srv/shiny-server/
 COPY ./medical_logo.jpg /srv/shiny-server/
 
 # Copy the CSV file into the app directory
-COPY ./hospital_plus.png /srv/shiny-server/
+COPY ./hospital_plus.jpg /srv/shiny-server/
 
 
 
