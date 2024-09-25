@@ -255,7 +255,7 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   output$image1 <- renderImage({
-    list(src = "./medical_logo.jpg", height = 70, width = 100)
+    list(src = medical_logo.jpg, height = 70, width = 100)
   }, deleteFile = FALSE)
   
   output$image2 <- renderImage({
