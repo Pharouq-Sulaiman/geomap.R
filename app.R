@@ -426,7 +426,7 @@ server <- function(input, output) {
   # Generate the leaflet map
   output$map3 <- renderLeaflet({
     
-    hospitalIconUrl <- "./hospital_plus.png" # Replace with the correct URL
+    hospitalIconUrl <- "./hospital_plus.jpg" # Replace with the correct URL
     
     # Create a custom icon using the PNG URL
     hospitalIcon <- makeIcon(
