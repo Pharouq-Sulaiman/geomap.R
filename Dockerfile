@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     libproj-dev
 
 # Install R packages required by your app
-RUN R -e "install.packages(c('shiny', 'shinydashboard', 'shinyjs', 'shinyFiles', 'tidyverse', 'sf', 'dplyr', 'mapview', 'leaflet', 'fontawesome', 'purrr', 'leaflet.extras', 'leaflet.extras2', 'leaflet.esri', 'htmltools', 'rwhatsapp', 'stringr', 'plotly', 'wordcloud2', 'ggplot2', 'tidyr', 'hms', 'text', 'stringi', 'emoji', 'janeaustenr', 'tidytext', 'writexl', 'emojifont', 'readr', 'reshape2', 'FactoMineR', 'factoextra', 'cluster', 'rio', 'SmartEDA', 'explore', 'ggraph', 'igraph', 'lubridate', 'ggimage'))"
+RUN R -e "install.packages(c('shiny', 'shinydashboard', 'shinyjs', 'shinyFiles', 'tidyverse', 'sf', 'dplyr', 'mapview', 'leaflet', 'fontawesome', 'purrr', 'leaflet.extras', 'leaflet.extras2', 'leaflet.esri', 'htmltools', 'rwhatsapp', 'stringr', 'plotly',  'ggplot2', 'tidyr', 'hms', 'text', 'stringi', 'emoji', 'janeaustenr', 'tidytext', 'writexl', 'emojifont', 'readr', 'reshape2', 'FactoMineR', 'factoextra', 'cluster', 'rio', 'SmartEDA', 'explore', 'ggraph', 'igraph', 'lubridate', 'ggimage'))"
 
 # Create a directory for your Shiny app
 RUN mkdir /srv/shiny-server/geomap
