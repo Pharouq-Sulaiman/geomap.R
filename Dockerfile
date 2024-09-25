@@ -21,6 +21,21 @@ RUN mkdir /srv/shiny-server/geomap
 # Copy your app into the Docker container
 COPY ./app.R /srv/shiny-server/geomap/
 
+# Copy the CSV file into the app directory
+COPY ./healthmopupandbaselinenmisfacility.csv /srv/shiny-server/
+
+# Copy the CSV file into the app directory
+COPY ./coat_of_arm.jpg /srv/shiny-server/
+
+# Copy the CSV file into the app directory
+COPY ./medical logo.jpg /srv/shiny-server/
+
+# Copy the CSV file into the app directory
+COPY ./hospital (14).png /srv/shiny-server/
+
+
+
+
 # Expose the port the app runs on
 EXPOSE 3838
 
