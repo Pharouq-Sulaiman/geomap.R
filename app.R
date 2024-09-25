@@ -258,7 +258,7 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   output$image1 <- renderImage({
-    list(src = "./medical logo.jpg", height = 70, width = 100)
+    list(src = "./medical_logo.jpg", height = 70, width = 100)
   }, deleteFile = FALSE)
   
   output$image2 <- renderImage({
@@ -426,7 +426,7 @@ server <- function(input, output) {
   # Generate the leaflet map
   output$map3 <- renderLeaflet({
     
-    hospitalIconUrl <- "./hospital (14).png" # Replace with the correct URL
+    hospitalIconUrl <- "./hospital_plus.png" # Replace with the correct URL
     
     # Create a custom icon using the PNG URL
     hospitalIcon <- makeIcon(
