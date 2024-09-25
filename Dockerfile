@@ -22,16 +22,16 @@ RUN mkdir /srv/shiny-server/geomap
 COPY ./app.R /srv/shiny-server/geomap/
 
 # Copy the CSV file into the app directory
-COPY ./healthmopupandbaselinenmisfacility.csv /srv/shiny-server/
+COPY ./healthmopupandbaselinenmisfacility.csv /srv/shiny-server/geomap/
 
 # Copy the CSV file into the app directory
-COPY ./coat_of_arm.jpg /srv/shiny-server/
+COPY ./coat_of_arm.jpg /srv/shiny-server/geomap/
 
 # Copy the CSV file into the app directory
-COPY ./medical_logo.jpg /srv/shiny-server/
+COPY ./medical_logo.jpg /srv/shiny-server/geomap/
 
 # Copy the CSV file into the app directory
-COPY ./hospital_plus.jpg /srv/shiny-server/
+COPY ./hospital_plus.jpg /srv/shiny-server/geomap/
 
 
 
