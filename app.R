@@ -50,7 +50,8 @@ hospitals1 <-hospitals%>%
 hospitals2 <-hospitals1%>%
   st_as_sf(coords = c("longitude", "latitude"),     
            crs    = 4326   ) 
-
+options(shiny.host = "0.0.0.0")
+options(shiny.port = 5000)
 # Define UI for application that draws a histogram
 ui <- fluidPage(
   theme= bslib::bs_theme(bootswatch = "flatly"),
@@ -621,6 +622,6 @@ In conclusion, our analytical endeavor transcends the realms of mere counting; i
   })
 }
 
-port <- Sys.getenv('PORT', unset = 3838)
+port <- Sys.getenv('PORT', unset = 5000)
 shinyApp(ui = ui, server = server, options = list(host = '0.0.0.0', port = as.numeric(port)))
 
