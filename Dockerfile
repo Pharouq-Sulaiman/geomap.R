@@ -19,7 +19,7 @@ RUN R -e "install.packages(c('shiny', 'shinydashboard', 'shinyjs', 'shinyFiles',
 RUN mkdir /srv/shiny-server/geomap
 
 # Copy your app into the Docker container
-COPY ./geomapping /srv/shiny-server/geomap/
+COPY ./app.R /srv/shiny-server/geomap/
 
 # Expose the port the app runs on
 EXPOSE 3838
