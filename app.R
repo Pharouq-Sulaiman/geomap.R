@@ -31,7 +31,7 @@ library(DT)
 
 # Load the dataset
 hospitals <- read.csv("./healthmopupandbaselinenmisfacility.csv")
-options(timeout = 6000)
+options(timeout = 100000000000)
 
 hospitals0 <- hospitals %>%
   select(-c(num_doctors_fulltime,num_nurses_fulltime
@@ -256,11 +256,11 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
   output$image1 <- renderImage({
-    list(src = medical_logo.jpg, height = 70, width = 100)
+    list(src = "./medical_logo.jpg", height = 70, width = 100)
   }, deleteFile = FALSE)
   
   output$image2 <- renderImage({
-    list(src = coat_of_arm.jpg, height = 70, width = 100)
+    list(src = "./coat_of_arm.jpg", height = 70, width = 100)
   }, deleteFile = FALSE)
   output$map <- renderLeaflet({
     mapview::mapview(hospitals2)@map
