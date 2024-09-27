@@ -27,7 +27,6 @@ library(stringr)
 library(plotly)
 library(stringi)
 library(stringr)
-library(tidytext)
 library(sf)
 library(mapview)
 library(leaflet)
@@ -35,7 +34,8 @@ library(fontawesome)
 library(purrr)
 library(DT)
 library(bslib)
-
+library(here)
+library(here.R)
 
 
 options(shiny.host = "0.0.0.0")
