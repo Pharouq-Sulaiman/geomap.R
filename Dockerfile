@@ -13,25 +13,26 @@ RUN apt-get update && apt-get install -y \
     libproj-dev
 
 # Install R packages required by your app
-RUN R -e "install.packages(c('shiny', 'shinydashboard', 'shinyjs', 'shinyFiles', 'tidyverse', 'sf', 'dplyr', 'mapview', 'leaflet', 'fontawesome', 'purrr', 'leaflet.extras', 'leaflet.extras2', 'leaflet.esri', 'htmltools', 'stringr', 'plotly','DT'))"
+RUN R -e "install.packages(c('shiny', 'shinydashboard','shinyjs','shinyFiles','tidyverse','sf','dplyr','mapview','leaflet','fontawesome','purrr','leaflet.extras','leaflet.extras2','leaflet.esri','htmltools','stringr','plotly','DT','bslib','here'))"
 
 # Create a directory for your Shiny app
 RUN mkdir /srv/shiny-server/geomap
+RUN mkdir /srv/shiny-server/geomap/www
 
 # Copy your app into the Docker container
 COPY ./app.R /srv/shiny-server/geomap/
 
 # Copy the CSV file into the app directory
-COPY ./healthmopupandbaselinenmisfacility.csv /srv/shiny-server/geomap/
+COPY ./healthmopupandbaselinenmisfacility.csv /srv/shiny-server/geomap/www/
 
 # Copy the CSV file into the app directory
-COPY ./coat_of_arm.jpg /srv/shiny-server/geomap/
+COPY ./coat_of_arm.jpg /srv/shiny-server/geomap/www/
 
 # Copy the CSV file into the app directory
-COPY ./medical_logo.jpg /srv/shiny-server/geomap/
+COPY ./medical_logo.jpg /srv/shiny-server/geomap/www/
 
 # Copy the CSV file into the app directory
-COPY ./hospital_plus.jpg /srv/shiny-server/geomap/
+COPY ./hospital_plus.jpg /srv/shiny-server/geomap/www/
 
 # Make sure www and data directories are accessible
 RUN chmod -R 755 /srv/shiny-server/
