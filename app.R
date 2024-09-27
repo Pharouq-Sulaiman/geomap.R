@@ -281,7 +281,7 @@ server <- function(input, output,session) {
   }, deleteFile = FALSE)
   
   output$image2 <- renderImage({
-    list(src = coat_of_arm.jpg, height = 70, width = 100)
+    list(src = "coat_of_arm.jpg", height = 70, width = 100)
   }, deleteFile = FALSE)
   output$map <- renderLeaflet({
     mapview::mapview(hospitals2())@map
