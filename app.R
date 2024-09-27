@@ -256,7 +256,7 @@ server <- function(input, output,session) {
   
   hospitals <- reactive({
      # Ensure the file exists
-    read.csv(here("healthmopupandbaselinenmisfacility.csv"))
+    read.csv(here("https://raw.githubusercontent.com/Pharouq-Sulaiman/geomap.R/refs/heads/main/healthmopupandbaselinenmisfacility.csv"))
   })
   
   # Define hospitals1 as a reactive expression
