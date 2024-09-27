@@ -42,7 +42,7 @@ options(shiny.host = "0.0.0.0")
 options(shiny.port = 5000)
 
 # Load the dataset
-hospitals <- read.csv("www/healthmopupandbaselinenmisfacility.csv")
+hospitals <- read.csv("https://raw.githubusercontent.com/Pharouq-Sulaiman/geomap.R/refs/heads/main/healthmopupandbaselinenmisfacility.csv")
 options(timeout = 6000000000)
 
 
