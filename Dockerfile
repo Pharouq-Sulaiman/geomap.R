@@ -17,22 +17,22 @@ RUN R -e "install.packages(c('shiny', 'shinydashboard','shinyjs','shinyFiles','t
 
 # Create a directory for your Shiny app
 RUN mkdir /srv/shiny-server/geomap
-RUN mkdir /srv/shiny-server/geomap/www
+
 
 # Copy your app into the Docker container
 COPY ./app.R /srv/shiny-server/geomap/
 
 # Copy the CSV file into the app directory
-COPY ./healthmopupandbaselinenmisfacility.csv /srv/shiny-server/geomap/www/
+COPY ./healthmopupandbaselinenmisfacility.csv /srv/shiny-server/geomap/
 
 # Copy the CSV file into the app directory
-COPY ./coat_of_arm.jpg /srv/shiny-server/geomap/www/
+COPY ./coat_of_arm.jpg /srv/shiny-server/geomap/
 
 # Copy the CSV file into the app directory
-COPY ./medical_logo.jpg /srv/shiny-server/geomap/www/
+COPY ./medical_logo.jpg /srv/shiny-server/geomap/
 
 # Copy the CSV file into the app directory
-COPY ./hospital_plus.jpg /srv/shiny-server/geomap/www/
+COPY ./hospital_plus.jpg /srv/shiny-server/geomap/
 
 # Make sure www and data directories are accessible
 RUN chmod -R 755 /srv/shiny-server/
