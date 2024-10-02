@@ -37,7 +37,8 @@ library(bslib)
 library(here)
 library(hereR)
 
-
+options(shiny.host = "0.0.0.0")
+options(shiny.port = 5000)
 
 # Load the dataset
 hospitals <- read.csv("https://raw.githubusercontent.com/Pharouq-Sulaiman/geomap.R/refs/heads/main/new_hospital.csv")
