@@ -40,7 +40,7 @@ library(hereR)
 
 
 # Load the dataset
-hospitals <- read.csv("www/new_hospital.csv")
+hospitals <- read.csv("https://raw.githubusercontent.com/Pharouq-Sulaiman/geomap.R/refs/heads/main/new_hospital.csv")
 options(timeout = 6000000000)
 
 
@@ -263,11 +263,11 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output,session) {
   output$image1 <- renderImage({
-    list(src = "www/medical_logo.jpg", height = 70, width = 100)
+    list(src = "medical_logo.jpg", height = 70, width = 100)
   }, deleteFile = FALSE)
   
   output$image2 <- renderImage({
-    list(src = "www/coat_of_arm.jpg", height = 70, width = 100)
+    list(src = "coat_of_arm.jpg", height = 70, width = 100)
   }, deleteFile = FALSE)
   output$map <- renderLeaflet({
     mapview::mapview(hospitals2)@map
@@ -624,7 +624,7 @@ Overall, the app serves as a powerful tool for visualizing and analyzing healthc
   # Generate the leaflet map
   output$map3 <- renderLeaflet({
     
-    hospitalIconUrl <- "www/hospital_plus.jpg" # Replace with the correct URL
+    hospitalIconUrl <- "hospital_plus.jpg" # Replace with the correct URL
     
     # Create a custom icon using the PNG URL
     hospitalIcon <- makeIcon(
