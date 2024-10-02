@@ -42,4 +42,4 @@ RUN chmod -R 755 /srv/shiny-server/
 EXPOSE 3838
 
 # Run the Shiny app
-CMD ["R", "-e", "shiny::runApp('/srv/shiny-server/geomap', host='0.0.0.0', port=3838)"]
+CMD ["R", "-e", "shiny::runApp('/srv/shiny-server/geomap', host='127.0.0.0', port=3838)"]
